@@ -9,15 +9,6 @@
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <developers>
-        <developer>
-            <name>Gabriel Diaz</name>
-            <email>gabriel.leonardo.diaz@gmail.com</email>
-            <organization>Freelancer</organization>
-            <organizationUrl>https://github.com/gldiazcardenas</organizationUrl>
-        </developer>
-    </developers>
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -115,6 +106,15 @@
         </license>
     </licenses>
 
+    <developers>
+        <developer>
+            <name>Gabriel Diaz</name>
+            <email>gabriel.leonardo.diaz@gmail.com</email>
+            <organization>Freelancer</organization>
+            <organizationUrl>https://github.com/gldiazcardenas</organizationUrl>
+        </developer>
+    </developers>
+
     <scm>
         <connection>scm:git:git://github.com/gldiazcardenas/web-commons.git</connection>
         <developerConnection>scm:git:ssh://github.com:gldiazcardenas/web-commons.git</developerConnection>
@@ -134,18 +134,6 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.7</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <serverId>ossrh</serverId>
-                    <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                </configuration>
-            </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
@@ -200,7 +188,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-deploy-plugin</artifactId>
-                <version>3.0.0-M1</version>
+                <version>3.0.0</version>
                 <executions>
                     <execution>
                         <id>deploy</id>
