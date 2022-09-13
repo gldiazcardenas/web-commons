@@ -122,7 +122,7 @@
     <scm>
         <connection>scm:git:git://github.com/gldiazcardenas/web-commons.git</connection>
         <developerConnection>scm:git:ssh://github.com:gldiazcardenas/web-commons.git</developerConnection>
-        <url>https://github.com/gldiazcardenas/web-commons</url>
+        <url>http://github.com/gldiazcardenas/web-commons</url>
     </scm>
 
     <distributionManagement>
