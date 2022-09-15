@@ -81,10 +81,10 @@ jobs:
       - name: 'Setup next Snapshot'
         id: version
         run: |
-          VERSION=${{ github.event.inputs.snapshot }}-SNAPSHOT
-          echo "Updating POM to version $VERSION"
-          ./mvnw -B versions:set versions:commit -DnewVersion=$VERSION
+          SNAPSHOT=${{ github.event.inputs.snapshot }}-SNAPSHOT
+          echo "Updating POM to version $SNAPSHOT"
+          ./mvnw -B versions:set versions:commit -DnewVersion=$SNAPSHOT
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --global user.name "GitHub Action"
-          git commit -a -m "Setting next snapshot $VERSION"
+          git commit -a -m "Setting next snapshot $SNAPSHOT"
           git push origin HEAD:main
