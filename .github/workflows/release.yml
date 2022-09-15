@@ -7,6 +7,10 @@ on:
         description: "Release version"
         required: true
 
+      changes:
+        description: "Changes in this version"
+        required: false
+
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -56,15 +60,16 @@ jobs:
             -Dmaven.site.skip=true -Drelease=true deploy
 
       - name: 'Release to GitHub'
+        id: create_release
+        uses: actions/create-release@v1
         env:
-          JRELEASER_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: ./mvnw -B --file pom.xml -Prelease -pl :web-commons jreleaser:full-release
-
-      - name: 'JReleaser output'
-        if: always()
-        uses: actions/upload-artifact@v3
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CHANGES_IN_VERSION: ${{ github.event.inputs.changes }}
         with:
-          name: jreleaser-logs
-          path: |
-            target/jreleaser/trace.log
-            target/jreleaser/output.properties
+          tag_name: v${{ github.event.inputs.version }}
+          release_name: Release v${{ github.event.inputs.version }}
+          body: |
+            Changes in this Release
+            - CHANGES_IN_VERSION
+          draft: false
+          prerelease: false
