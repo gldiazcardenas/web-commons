@@ -7,7 +7,7 @@ on:
         description: "Version to release"
         required: true
 
-      next:
+      snapshot:
         description: "Next snapshot version"
         required: true
 
