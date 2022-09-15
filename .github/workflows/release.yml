@@ -66,13 +66,12 @@ jobs:
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CHANGES_IN_VERSION: ${{ github.event.inputs.changes }}
         with:
           tag_name: v${{ github.event.inputs.version }}
           release_name: Release v${{ github.event.inputs.version }}
           body: |
             Changes in this Release
-            - CHANGES_IN_VERSION
+            - ${{ github.event.inputs.changes }}
           draft: false
           prerelease: false
 
