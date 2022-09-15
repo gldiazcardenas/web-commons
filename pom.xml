@@ -216,7 +216,6 @@
                 </configuration>
             </plugin>
 
-            <!-- disabled temporarily
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
@@ -239,7 +238,6 @@
                     </execution>
                 </executions>
             </plugin>
-            -->
         </plugins>
     </build>
 
