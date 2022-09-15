@@ -24,7 +24,6 @@ jobs:
           fetch-depth: 0
 
       - name: 'Update to release version'
-        id: version
         run: |
           VERSION=${{ github.event.inputs.version }}
           echo "Updating POM to version $VERSION"
@@ -35,7 +34,6 @@ jobs:
           git push origin HEAD:main
 
       - name: 'Release to GitHub'
-        id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -50,7 +48,6 @@ jobs:
           prerelease: false
 
       - name: 'Setup next Snapshot'
-        id: version
         run: |
           SNAPSHOT=${{ github.event.inputs.snapshot }}-SNAPSHOT
           echo "Updating POM to version $SNAPSHOT"
